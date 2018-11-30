@@ -258,12 +258,14 @@ func (this *FcmClient) BatchSubscribeToTopic(tokens []string, topic string) (*Ba
 
 	if err != nil {
 		fmt.Println(err)
+		return nil, err
 	}
 
 	client := &http.Client{}
 	response, err := client.Do(request)
 	if err != nil {
 		fmt.Println(err)
+		return nil, err
 	}
 
 	defer response.Body.Close()
@@ -300,12 +302,14 @@ func (this *FcmClient) BatchUnsubscribeFromTopic(tokens []string, topic string) 
 
 	if err != nil {
 		fmt.Println(err)
+		return nil, err
 	}
 
 	client := &http.Client{}
 	response, err := client.Do(request)
 	if err != nil {
 		fmt.Println(err)
+		return nil, err
 	}
 
 	defer response.Body.Close()
