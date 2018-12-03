@@ -117,8 +117,7 @@ func (this *FcmClient) GetInfo(withDetails bool, instanceIdToken string) (*Insta
 		return nil, err
 	}
 
-	client := &http.Client{}
-	response, err := client.Do(request)
+	response, err := this.Client.Do(request)
 	if err != nil {
 		return nil, err
 	}
@@ -188,8 +187,7 @@ func (this *FcmClient) SubscribeToTopic(instanceIdToken string, topic string) (*
 		return nil, err
 	}
 
-	client := &http.Client{}
-	response, err := client.Do(request)
+	response, err := this.Client.Do(request)
 	if err != nil {
 		return nil, err
 	}
@@ -261,8 +259,7 @@ func (this *FcmClient) BatchSubscribeToTopic(tokens []string, topic string) (*Ba
 		return nil, err
 	}
 
-	client := &http.Client{}
-	response, err := client.Do(request)
+	response, err := this.Client.Do(request)
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
@@ -305,8 +302,7 @@ func (this *FcmClient) BatchUnsubscribeFromTopic(tokens []string, topic string) 
 		return nil, err
 	}
 
-	client := &http.Client{}
-	response, err := client.Do(request)
+	response, err := this.Client.Do(request)
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
@@ -395,8 +391,7 @@ func (this *FcmClient) ApnsBatchImportRequest(apnsReq *ApnsBatchRequest) (*ApnsB
 		return nil, err
 	}
 
-	client := &http.Client{}
-	response, err := client.Do(request)
+	response, err := this.Client.Do(request)
 	if err != nil {
 		return nil, err
 	}
